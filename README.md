@@ -5,7 +5,7 @@ This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod pl
 
 # Dependencies
 - Sourcebans++ (optional)
-- SteamWorks (required)
+- [SteamWorks](https://users.alliedmods.net/~kyles/builds/SteamWorks/) (required)
 
 # Detects
     Aimbot
