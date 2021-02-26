@@ -29,6 +29,6 @@ This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod pl
 
 # ChangeLog
 
-## [1.2] - 2018-04-12
+## [1.2] - 26-02-2021
 ### Added
 - Changed threshholds based off testing.
