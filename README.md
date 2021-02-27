@@ -17,7 +17,7 @@ This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod pl
     Instant Defuse
     Perfect Strafe
     AHK/MSL Strafe
-    CSGO Hour Check
+    Profile Checking (WIP)
 
 # Commands
 - sm_bhopcheck / !bhopcheck
