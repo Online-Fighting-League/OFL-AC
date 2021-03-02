@@ -22,10 +22,10 @@ This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod pl
 - sm_bhopcheck / !bhopcheck
 
 # Useage
-    Install OFLAntiCheat.smx into the `/plugins/` folder inside of Sourcemod on your game server
-    Load the plugin manually, change maps or restart the server
-    You can edit the config and change threshholds in the config `/cfg/OFLAntiCheat/OFLAntiCheat.cfg`
-	You can view detection logs at `/addons/sourcemod/logs/OFLAC_Log.txt`
+Install OFLAntiCheat.smx into the `/plugins/` folder inside of Sourcemod on your game server
+Load the plugin manually, change maps or restart the server
+You can edit the config and change threshholds in the config `/cfg/OFLAntiCheat/OFLAntiCheat.cfg` (we advise against this)
+You can view detection logs at `/addons/sourcemod/logs/OFLAC_Log.txt`
 
 # ChangeLog
 
