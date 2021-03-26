@@ -1,6 +1,8 @@
 # OFL Anti-Cheat
 This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod plugin designed for use on tournament servers but is equally applicable for community servers due to its SourceBans integration.
 
+Download from the OFL website: https://onlinefightingleague.com/ac
+
 # Dependencies
 - Sourcebans (optional)
 - Sourcebans++ (optional)
