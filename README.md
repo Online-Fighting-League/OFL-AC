@@ -1,7 +1,7 @@
 # OFL Anti-Cheat
 This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod plugin designed for use on tournament servers but is equally applicable for community servers due to its SourceBans integration.
 
-Download from the OFL website: https://onlinefightingleague.com/ac
+Download latest stable build from the OFL website: https://onlinefightingleague.com/ac
 
 # Dependencies
 - Sourcebans (optional)
@@ -18,8 +18,10 @@ Download from the OFL website: https://onlinefightingleague.com/ac
     Instant Defuse
     Perfect Strafe
     AHK/MSL Strafe
-	Game Hours
-	Clan Tag Binds
+    Latency Manipulation
+    Profile Checks
+	Playtime Checks
+    Clan Tag Binds
 
 # Useage
     Install OFLAntiCheat.smx into the `/plugins/` folder inside of Sourcemod on your game server
@@ -28,6 +30,12 @@ Download from the OFL website: https://onlinefightingleague.com/ac
 	You can view detection logs at `/addons/sourcemod/logs/OFLAC_Log.txt`
 
 # ChangeLog
+
+## [1.2.21] - 26-03-2021
+### Added
+- Bug Fixes from 1.2.2
+- Debugging : sm_ac_debug default changed to 1
+
 
 ## [1.2.2] - 24-03-2021
 ### Added
