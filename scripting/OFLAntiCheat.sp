@@ -7,7 +7,7 @@
 #pragma semicolon 1
 
 #define PLUGIN_AUTHOR "Online Fighting League"
-#define PLUGIN_VERSION "1.2.21"
+#define PLUGIN_VERSION "1.2.22"
 #define JUMP_HISTORY 30
 #define SERVER 0
 #define HIDE_CMDRATE_VELUE 10
@@ -18,6 +18,7 @@
 #undef REQUIRE_PLUGIN
 #tryinclude <quickdefuse>
 #tryinclude <sourcebanspp>
+#tryinclude <materialadmin>
 #if !defined _sourcebanspp_included
 	#tryinclude <sourcebans>
 #endif
@@ -128,6 +129,35 @@ ConVar sm_ac_perfectstrafe_bantime = null;
 ConVar sm_ac_instantdefuse_bantime = null;
 ConVar sm_ac_clantagchange_bantime = null;
 ConVar sm_ac_hidelatency_bantime = null;
+
+enum  
+{
+	SOURCEBANS,
+	SOURCEBANSPP,
+	MATERIALADMIN
+}
+
+bool systems[3];
+
+public void OnLibraryAdded(const char[] name)
+{
+	if (StrEqual(name, "materialadmin"))
+		systems[MATERIALADMIN] = true;
+	else if (StrEqual(name, "sourcebanspp"))
+		systems[SOURCEBANSPP] = true;
+	else if (StrEqual(name, "sourcebans"))
+		systems[SOURCEBANS] = true;
+}
+
+public void OnLibraryRemoved(const char[] name)
+{
+	if (StrEqual(name, "materialadmin"))
+		systems[MATERIALADMIN] = false;
+	else if (StrEqual(name, "sourcebanspp"))
+		systems[SOURCEBANSPP] = false;
+	else if (StrEqual(name, "sourcebans"))
+		systems[SOURCEBANS] = false;
+}
 
 public void OnPluginStart()
 {
@@ -1268,30 +1298,52 @@ public float GetClientVelocity(int client, bool UseX, bool UseY, bool UseZ)
 
 stock void BanPlayer(int client, int time, char[] reason)
 {
-	#if defined _sourcebanspp_included
+	/*#if defined _sourcebanspp_included
 		SBPP_BanPlayer(SERVER, client, time, reason);
-	#else
+	# elseif defined _materialadmin_included
+		MABanPlayer(client, SERVER, MA_BAN_STEAM, time, reason); 
+	#else 
 		#if defined _sourcebans_included
 			SBBanPlayer(SERVER, client, time, reason);
 		#else
 			BanClient(client, time, BANFLAG_AUTO, reason);
 		#endif
-	#endif
+	#endif*/
+
+	if (systems[MATERIALADMIN])
+		MABanPlayer(client, SERVER, MA_BAN_STEAM, time, reason); 
+	else if (systems[SOURCEBANSPP])
+		SBPP_BanPlayer(SERVER, client, time, reason);
+	else if (systems[SOURCEBANS])
+		SBBanPlayer(SERVER, client, time, reason);
+	else 
+		BanClient(client, time, BANFLAG_AUTO, reason);
 }
 
 // Give info to console which banning method will be used,
 // directly depends on compiling, please look at #tryinclude directive.
 stock void BanMethodTypePrintToServer()
 {
-	#if defined _sourcebanspp_included
+	if (systems[MATERIALADMIN])
+		PrintToServer("[OFL AC] Banning players via: MaterialAdmin");
+	else if (systems[SOURCEBANSPP])
 		PrintToServer("[OFL AC] Banning players via: Sourcebans++");
+	else if (systems[SOURCEBANS])
+		PrintToServer("[OFL AC] Banning players via: Sourcebans");
+	else 
+		PrintToServer("[OFL AC] Banning players via: SourceMod");
+
+	/*#if defined _sourcebanspp_included
+		PrintToServer("[OFL AC] Banning players via: Sourcebans++");
+	#elseif defined _materialadmin_included
+		PrintToServer("[OFL AC] Banning players via: MaterialAdmin");
 	#else
 		#if defined _sourcebans_included
 			PrintToServer("[OFL AC] Banning players via: Sourcebans");
 		#else
 			PrintToServer("[OFL AC] Banning players via: SourceMod");
 		#endif
-	#endif
+	#endif*/
 }
 
 public void OnPlayerDefuseC4(int client)
