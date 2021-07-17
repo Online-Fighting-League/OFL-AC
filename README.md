@@ -33,7 +33,7 @@ Customisable ban times, chose what is detected and if you dare... edit threshold
 # Deploy
     Extract the zip in your `/csgo/` folder.
     Restart the server to load the plugin and generate config files.
-    You can edit the config and change threshholds in the config `/cfg/ofl/ofl_anticheat.cfg`
+    You can edit the config and change threshholds in the config `/cfg/sourcemod/ofl_anticheat.cfg`
 	You can view detection logs at `/addons/sourcemod/logs/oflac_log.txt`
 
 # ChangeLog
