@@ -25,7 +25,7 @@ Download latest stable build from the OFL website: https://onlinefightingleague.
 	Profile Checks
 	Playtime Checks
 
-# Useage
+# Usage
 Detect and automatically ban players that hack and script on your server. Additionally close your server off to players who don't match profile or playtime requirements.
 Customisable ban times, chose what is detected and if you dare... edit thresholds.
 
