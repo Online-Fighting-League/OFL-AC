@@ -1,6 +1,5 @@
 # OFL Anti-Cheat
 [![Version](https://img.shields.io/github/v/release/Online-Fighting-League/OFL-AC?color=98FB98&style=for-the-badge)](https://onlinefightingleague.com/ac)
-[![Downloads](https://img.shields.io/github/downloads/Online-Fighting-League/OFL-AC/total?color=%239370D8&label=Downloads&style=for-the-badge)](https://onlinefightingleague.com/ac)
 [![Dev discord](https://img.shields.io/badge/Dev%20discord-%23OFL-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/JdXxEmw)
 
 This is a modified version of Cow Anti-Cheat. It is a drag and drop sourcemod plugin designed for use on tournament servers but is equally applicable for community servers due to its SourceBans integration.
