@@ -1,7 +1,7 @@
 # OFL Anti-Cheat
 [![Version](https://img.shields.io/github/v/release/Online-Fighting-League/OFL-AC?color=98FB98&style=for-the-badge)](https://onlinefightingleague.com/ac)
 [![Dev discord](https://img.shields.io/badge/Dev%20discord-OFL-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/JdXxEmw)
-[![Twitter](https://img.shields.io/twitter/follow/ofl_esports?style=for-the-badge)(https://twitter.com/ofl_esports)]
+[![Twitter](https://img.shields.io/twitter/follow/ofl_esports?style=for-the-badge)](https://twitter.com/ofl_esports)
 
 Designed for community servers and league servers. A drag and drop solution to support admins in keeping your server clean of hackers.
 This being a server-side plugin it is not (and will never be) a catch all solution. You should always have some method of human intervention to investigate those that fall through the net.
