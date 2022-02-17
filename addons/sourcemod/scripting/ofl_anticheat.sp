@@ -1,26 +1,49 @@
 /*  [OFL AC] Server Side
  *
- *  Copyright (C) 2021 Online Fighting League // onlinefightingleague.com // support@onlinefightingleague.com
- * 
+ *  Copyright (C) 2021 Online Fighting League
+ *  For official support visit support.onlinefightingleague.com
+ *
+ *  This plugin DOES NOT link into the OFL Play system and does not cross-ban players or connect to a banlist. 
+ *
  */
  
 #pragma semicolon 1
 
 #define PLUGIN_AUTHOR "Online Fighting League"
-#define PLUGIN_VERSION "1.2.3"
+#define PLUGIN_VERSION "1.3.0"
 #define JUMP_HISTORY 30
 #define SERVER 0
-#define HIDE_CMDRATE_VELUE 10
+#define HIDE_CMDRATE_VALUE 10
 
 #include <sourcemod>
 #include <sdktools>
-#include <SteamWorks>
+#include <steamworks>
+#include <updater>
 #undef REQUIRE_PLUGIN
+// checking if quickdefuse addon is installed: https://forums.alliedmods.net/showthread.php?p=520661?p=520661
 #tryinclude <quickdefuse>
 #tryinclude <sourcebanspp>
 #if !defined _sourcebanspp_included
 	#tryinclude <sourcebans>
 #endif
+
+
+/* [OFL-AC] Server-Side Updater
+ * 
+ * Thank you to GoD-Tony for creating Updater
+ * 
+ * https://forums.alliedmods.net/showthread.php?t=169095
+ * 
+ *
+ */
+
+#define UPDATE_URL		"https://onlinefightingleague.com/anti-cheat/builder/update.txt"
+
+#if !defined _updater_included
+	#warning "updater.inc" was not found, updates will not be automatically installed!
+#endif
+
+// Updater end
 
 #pragma newdecls required
 
@@ -146,6 +169,12 @@ public void OnPluginStart()
 	SetConVars();
 
 	SetHooks();
+
+	// updater
+	if (LibraryExists("updater"))
+    {
+    	Updater_AddPlugin(UPDATE_URL);
+    }
 }
 
 public void SetHooks()
@@ -157,6 +186,7 @@ public void SetHooks()
 	HookEvent("bomb_planted", Event_BombPlanted);
 }
 
+//setting up cfg file
 public void SetConVars()
 {
 	if(game_engine == Engine_CSGO)
@@ -182,7 +212,7 @@ public void SetConVars()
 	sm_ac_steamapi_key = CreateConVar("sm_ac_steamapi_key", "", "Need for ProfileCheck and HourCheck. (https://steamcommunity.com/dev/apikey)", FCVAR_NOTIFY);
 
 	sm_ac_aimbot_ban_threshold = CreateConVar("sm_ac_aimbot_ban_threshold", "5", "Threshold for aimbot ban detection (Default: 5)");
-	sm_ac_bhop_ban_threshold = CreateConVar("sm_ac_bhop_ban_threshold", "10", "Threshold for bhop ban detection (Default: 10)");
+	sm_ac_bhop_ban_threshold = CreateConVar("sm_ac_bhop_ban_threshold", "11", "Threshold for bhop ban detection (Default: 11)");
 	sm_ac_silentstrafe_ban_threshold = CreateConVar("sm_ac_silentstrafe_ban_threshold", "10", "Threshold for silent-strafe ban detection (Default: 10)");
 	sm_ac_triggerbot_ban_threshold = CreateConVar("sm_ac_triggerbot_ban_threshold", "5", "Threshold for triggerbot ban detection (Default: 5)");
 	sm_ac_triggerbot_log_threshold = CreateConVar("sm_ac_triggerbot_log_threshold", "3", "Threshold for triggerbot log detection (Default: 3)");
@@ -205,7 +235,8 @@ public void SetConVars()
 	sm_ac_clantagchange_bantime = CreateConVar("sm_ac_clantagchange_bantime", "1", "Ban time for changing clan tag in minutes (Default: 1)");
 	sm_ac_hidelatency_bantime = CreateConVar("sm_ac_hidelatency_bantime", "1", "Ban time for hiding latency (Default: 1)");
 
-	AutoExecConfig(true, "ofl");
+	AutoExecConfig(true, "ofl-ac");
+
 }
 
 public void OnClientDisconnect_Post(int client)
@@ -397,7 +428,7 @@ public void OnCheckClientCmdRate(QueryCookie cookie, int client, ConVarQueryResu
 	GetClientInfo(client, "cl_cmdrate", cmdRate, sizeof(cmdRate));
 
 	int rate = StringToInt(cmdRate);
-	if(rate == HIDE_CMDRATE_VELUE)
+	if(rate == HIDE_CMDRATE_VALUE)
 	{
 		char reason[256];
 		Format(reason, 256, "[OFL AC] Kicked %N for hiding latency (cl_cmdrate)!", client);
@@ -1071,6 +1102,7 @@ public void CheckAHKStrafe(int client, int mouse)
 	}
 }
 
+// Account checking stuff
 Handle CreateRequest_TimePlayed(int client)
 {
 	char request_url[256];
