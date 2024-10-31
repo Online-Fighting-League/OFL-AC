@@ -3,15 +3,11 @@
 [![Dev discord](https://img.shields.io/badge/Dev%20discord-OFL-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/JdXxEmw)
 [![Twitter](https://img.shields.io/twitter/follow/ofl_esports?style=for-the-badge)](https://twitter.com/ofl_esports)
 
-Designed for community servers and league servers. A drag and drop solution to support admins in keeping your server clean of hackers.
-This being a server-side plugin it is not (and will never be) a catch all solution. You should always have some method of human intervention to investigate those that fall through the net.
+Designed for community servers and league servers. A drag and drop solution to support admins in keeping your server clean of hackers. This being a server-side plugin it is not (and will never be) a catch all solution. You should always have some method of human intervention to investigate those that fall through the net.
 
-Latest builds and auto updates are hosted on: https://onlinefightingleague.com/
+OFL Anti-Cheat is a server side anti-cheat plugin. It was originally created and implemented into the OFL tournament system. Additional non-public versions where made to integrate with the OFL Play matchmaking platform. The project was discontinued due to the release of CS2. To answer some questions, no this does not work on CS2 however the anti-cheat will work and is developed for source games. Provenly a very good TF2 anti cheat;) . The updater no longer works as OFL Servers have been taken offline.
 
-# What is OFL?
-The Online Fighting League was and still is an esport event organiser. But is slowly moving towards hosting an online matchmaking system and league automation system for third-party organisers to utilise, allowing them to focus on what is important in an event. If you wish to help us then you can join our discord or contact us through our [Support Site](https://support.onlinefigthingleague.com). We currently do not accept donations but will be opening a donation portal to support us soon.
-
-All our products, open source, free, proprietary and whatever else, are made with <3 from the UK 🇬🇧
+The Online Fighting League no longer exists, all support for this plugin is done so by ABR Hosting, the previous financial supporter of OFL. If you would like support for this plugin or are interested in a server go to https://abrhosting.com // https://discord.gg/kxqSuPQpr3
 
 # Dependencies
 - Sourcebans (optional)
