@@ -1,16 +1,16 @@
-/*  [OFL AC] Server Side
+/*  [OFL AC] Server Side Anti Cheat
  *
- *  Copyright (C) 2021 Online Fighting League
- *  For official support visit support.onlinefightingleague.com
+ *  Copyright (C) 2025 ABR Hosting
+ *  For support please contact ABR Hosting: https://abrhosting.com/support
  *
- *  This plugin DOES NOT link into the OFL Play system and does not cross-ban players or connect to a banlist. 
+ *  Need game servers? ABR Hosting offers hosting for a growing collection of games, visit abrhosting.com/game-servers
  *
  */
  
 #pragma semicolon 1
 
-#define PLUGIN_AUTHOR "Online Fighting League"
-#define PLUGIN_VERSION "1.3.0"
+#define PLUGIN_AUTHOR "ABR Hosting"
+#define PLUGIN_VERSION "1.3.01"
 #define JUMP_HISTORY 30
 #define SERVER 0
 #define HIDE_CMDRATE_VALUE 10
@@ -37,7 +37,7 @@
  *
  */
 
-#define UPDATE_URL		"https://onlinefightingleague.com/anti-cheat/builder/update.txt"
+#define UPDATE_URL		"https://abrhosting.com/legacy/anti-cheat/builder/update.txt"
 
 #if !defined _updater_included
 	#warning "updater.inc" was not found, updates will not be automatically installed!
@@ -51,9 +51,9 @@ public Plugin myinfo =
 {
 	name = "OFL Anti Cheat",
 	author = PLUGIN_AUTHOR,
-	description = "Server side Anti-Cheating solution by OFL",
+	description = "Server side source anti-cheat solution from ABR Hosting",
 	version = PLUGIN_VERSION,
-	url = "https://onlinefightingleague.com/ac"
+	url = "https://abrhosting.com/legacy/anti-cheat/index.php"
 };
 
 EngineVersion game_engine = Engine_Unknown;
